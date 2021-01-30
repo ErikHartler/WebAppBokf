@@ -23,7 +23,7 @@ namespace XUnitTestProject1
         }
         protected void AssertHttpStatusNotFound(HttpResponseMessage result)
         {
-            Assert.True(result.StatusCode == HttpStatusCode.OK, $"Status code is {result.StatusCode} but should be OK");
+            Assert.False (result.StatusCode == HttpStatusCode.OK, $"Status code is {result.StatusCode} but should be OK");
         }
         protected HttpResponseMessage HttpInvoke(string page)
         {
