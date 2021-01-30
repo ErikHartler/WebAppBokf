@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Installningar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BokforingsarFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BokforingsarTom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bolagsnamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organisationsnr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoIngMoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoUtgMoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoMomsAvstamning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoIntakterFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoIntakterTom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoIntakterKund)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoFordranFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoFordranTom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontoFordranKund)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BokforingsarFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BokforingsarTom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bolagsnamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organisationsnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoIngMoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoUtgMoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoMomsAvstamning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoIntakterFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoIntakterTom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoIntakterKund)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoFordranFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoFordranTom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontoFordranKund)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

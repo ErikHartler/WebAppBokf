@@ -1,0 +1,67 @@
+﻿@model WebAppCRUD.Models.Verifikation
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Verifikation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Verifikation1" class="control-label"></label>
+                <input asp-for="Verifikation1" class="form-control" />
+                <span asp-validation-for="Verifikation1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beskrivning" class="control-label"></label>
+                <input asp-for="Beskrivning" class="form-control" />
+                <span asp-validation-for="Beskrivning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaktionsdatum" class="control-label"></label>
+                <input asp-for="Transaktionsdatum" class="form-control" />
+                <span asp-validation-for="Transaktionsdatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DebetKr" class="control-label"></label>
+                <input asp-for="DebetKr" class="form-control" />
+                <span asp-validation-for="DebetKr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KreditKr" class="control-label"></label>
+                <input asp-for="KreditKr" class="form-control" />
+                <span asp-validation-for="KreditKr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bokforingsdatum" class="control-label"></label>
+                <input asp-for="Bokforingsdatum" class="form-control" />
+                <span asp-validation-for="Bokforingsdatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kundnummer" class="control-label"></label>
+                <select asp-for="Kundnummer" class ="form-control" asp-items="ViewBag.Kundnummer"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fakturanr" class="control-label"></label>
+                <select asp-for="Fakturanr" class ="form-control" asp-items="ViewBag.Fakturanr"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

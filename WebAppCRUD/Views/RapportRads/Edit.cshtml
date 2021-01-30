@@ -1,0 +1,65 @@
+﻿@model WebAppCRUD.Models.RapportRad
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>RapportRad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rapport" class="control-label"></label>
+                <select asp-for="Rapport" class="form-control" asp-items="ViewBag.Rapport"></select>
+                <span asp-validation-for="Rapport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Radnr" class="control-label"></label>
+                <input asp-for="Radnr" class="form-control" />
+                <span asp-validation-for="Radnr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KontoFrom" class="control-label"></label>
+                <input asp-for="KontoFrom" class="form-control" />
+                <span asp-validation-for="KontoFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KontoTom" class="control-label"></label>
+                <input asp-for="KontoTom" class="form-control" />
+                <span asp-validation-for="KontoTom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RadFromTom" class="control-label"></label>
+                <input asp-for="RadFromTom" class="form-control" />
+                <span asp-validation-for="RadFromTom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Radbenamning" class="control-label"></label>
+                <input asp-for="Radbenamning" class="form-control" />
+                <span asp-validation-for="Radbenamning" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OmAdderaIb" /> @Html.DisplayNameFor(model => model.OmAdderaIb)
+                </label>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

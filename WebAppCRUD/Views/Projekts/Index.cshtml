@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Projekt>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kundnr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beskrivning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projektledare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TillOchMed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timpris)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VarReferens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErReferens)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kundnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beskrivning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projektledare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TillOchMed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timpris)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VarReferens)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErReferens)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Projektnr">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Projektnr">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Projektnr">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

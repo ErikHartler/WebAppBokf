@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebAppCRUD.Models.MallTransaktioner>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Radnr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebetProc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KreditProc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Konto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kostnadsbarare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KortkodNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Radnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DebetProc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KreditProc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Konto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kostnadsbarare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KortkodNavigation.Kortkod)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

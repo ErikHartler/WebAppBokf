@@ -1,0 +1,61 @@
+﻿@model WebAppCRUD.Models.Fakturarad
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Fakturarad</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Radnummer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Radnummer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProduktTjanst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProduktTjanst)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Enhetspris)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enhetspris)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SummaKr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SummaKr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Antal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Antal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnhetNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnhetNavigation.Enhet1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FakturanummerNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FakturanummerNavigation.Fakturanummer)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

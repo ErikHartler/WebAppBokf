@@ -1,0 +1,55 @@
+﻿@model WebAppCRUD.Models.MenyvalPerson
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MenyvalPerson</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Anvandare" class="control-label"></label>
+                <input asp-for="Anvandare" class="form-control" />
+                <span asp-validation-for="Anvandare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Menyvalsnummer" class="control-label"></label>
+                <select asp-for="Menyvalsnummer" class="form-control" asp-items="ViewBag.Menyvalsnummer"></select>
+                <span asp-validation-for="Menyvalsnummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnvandAntal" class="control-label"></label>
+                <input asp-for="AnvandAntal" class="form-control" />
+                <span asp-validation-for="AnvandAntal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnvandSenast" class="control-label"></label>
+                <input asp-for="AnvandSenast" class="form-control" />
+                <span asp-validation-for="AnvandSenast" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MakeCmd" /> @Html.DisplayNameFor(model => model.MakeCmd)
+                </label>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

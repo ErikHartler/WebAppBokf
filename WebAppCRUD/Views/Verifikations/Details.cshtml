@@ -1,0 +1,114 @@
+﻿@model WebAppCRUD.Models.Verifikation
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Verifikation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Verifikation1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Verifikation1)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Beskrivning)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Beskrivning)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaktionsdatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaktionsdatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DebetKr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DebetKr)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KreditKr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KreditKr)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bokforingsdatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bokforingsdatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FakturanrNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FakturanrNavigation.Fakturanummer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KundnummerNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KundnummerNavigation.Kundnummer)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().Verifikation)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().Konto)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().DebetKr)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().KreditKr)
+        </dt>
+    </dl>
+
+    @foreach (Transaktion trans in Model.Transaktion)
+    {
+        
+<dl class="row">
+    <dd class="col-sm-2">
+        @trans.Verifikation
+    </dd>
+    <dd class="col-sm-2">
+        @trans.Konto
+    </dd>
+    <dd class="col-sm-2">
+        @Math.Round(trans.DebetKr.Value,2)
+    </dd>
+    <dd class="col-sm-2">
+        @Math.Round(trans.KreditKr.Value, 2)
+    </dd>
+</dl>
+    }
+<dl class="row">
+    <dd class="col-sm-2">
+        &nbsp;
+    </dd>
+    <dd class="col-sm-2">
+        &nbsp;
+    </dd>
+    <dd class="col-sm-2">
+        @Math.Round(Model.Transaktion.Sum(t => t.DebetKr.Value), 2)
+    </dd>
+    <dd class="col-sm-2">
+        @Math.Round(Model.Transaktion.Sum(t => t.KreditKr.Value), 2)
+    </dd>
+</dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Verifikation1">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

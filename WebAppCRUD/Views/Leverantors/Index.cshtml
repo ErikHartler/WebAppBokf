@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Leverantor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Namn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefonnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LandNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefonnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LandNavigation.Landskod1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Leverantorsnummer">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Leverantorsnummer">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Leverantorsnummer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

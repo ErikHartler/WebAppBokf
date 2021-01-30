@@ -1,0 +1,198 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Faktura>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fakturadatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forfallodatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utskriftsdatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kundnamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Box)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeloppExklMoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MomsKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeloppInklMomsKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BetaltKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Betaldatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VarReferens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErRefForN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kommentar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErRefEfterN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Villkor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Momssats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paminnelse1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paminnelse2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inkasso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UtestaendeFordr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coadress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Land)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Godkann)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projekt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KundnummerNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fakturadatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forfallodatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utskriftsdatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kundnamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Box)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeloppExklMoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MomsKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeloppInklMomsKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetaltKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Betaldatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VarReferens)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErRefForN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kommentar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErRefEfterN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Villkor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Momssats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paminnelse1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paminnelse2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inkasso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UtestaendeFordr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coadress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Land)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Godkann)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projekt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KundnummerNavigation.Kundnummer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Fakturanummer">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Fakturanummer">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Fakturanummer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

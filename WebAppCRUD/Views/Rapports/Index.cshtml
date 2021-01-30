@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Rapport>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Benamning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OmTeckenvandning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OmKol2Ib)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kommentar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Benamning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OmTeckenvandning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OmKol2Ib)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kommentar)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Rapport1">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Rapport1">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Rapport1">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

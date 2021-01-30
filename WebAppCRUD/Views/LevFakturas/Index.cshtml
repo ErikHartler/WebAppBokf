@@ -1,0 +1,132 @@
+﻿@model IEnumerable<WebAppCRUD.Models.LevFaktura>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fakturadatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forfallodatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utskriftsdatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leverantörsnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeloppExklMoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MomsKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeloppInklMomsKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BetaltKr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Betaldatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VarReferens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErRefForN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kommentar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErRefEfterN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Villkor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Momssats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Godkann)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerNrNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fakturadatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forfallodatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utskriftsdatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leverantörsnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeloppExklMoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MomsKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeloppInklMomsKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetaltKr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Betaldatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VarReferens)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErRefForN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kommentar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErRefEfterN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Villkor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Momssats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Godkann)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerNrNavigation.Verifikation1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LevFakturanummer">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LevFakturanummer">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LevFakturanummer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

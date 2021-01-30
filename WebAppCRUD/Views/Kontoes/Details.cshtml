@@ -1,0 +1,55 @@
+﻿@model WebAppCRUD.Models.Konto
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Konto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arsredovisningsrad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arsredovisningsrad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Benamning)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Benamning)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IbDebetKr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IbDebetKr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IbKreditKr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IbKreditKr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OmDebet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OmDebet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Skattekonto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Skattekonto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Konto1">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

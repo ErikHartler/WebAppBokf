@@ -1,0 +1,115 @@
+﻿@model WebAppCRUD.Models.LevFaktura
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>LevFaktura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LevFakturanummer" />
+            <div class="form-group">
+                <label asp-for="Fakturadatum" class="control-label"></label>
+                <input asp-for="Fakturadatum" class="form-control" />
+                <span asp-validation-for="Fakturadatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Forfallodatum" class="control-label"></label>
+                <input asp-for="Forfallodatum" class="form-control" />
+                <span asp-validation-for="Forfallodatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Utskriftsdatum" class="control-label"></label>
+                <input asp-for="Utskriftsdatum" class="form-control" />
+                <span asp-validation-for="Utskriftsdatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Leverantörsnummer" class="control-label"></label>
+                <input asp-for="Leverantörsnummer" class="form-control" />
+                <span asp-validation-for="Leverantörsnummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeloppExklMoms" class="control-label"></label>
+                <input asp-for="BeloppExklMoms" class="form-control" />
+                <span asp-validation-for="BeloppExklMoms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MomsKr" class="control-label"></label>
+                <input asp-for="MomsKr" class="form-control" />
+                <span asp-validation-for="MomsKr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeloppInklMomsKr" class="control-label"></label>
+                <input asp-for="BeloppInklMomsKr" class="form-control" />
+                <span asp-validation-for="BeloppInklMomsKr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BetaltKr" class="control-label"></label>
+                <input asp-for="BetaltKr" class="form-control" />
+                <span asp-validation-for="BetaltKr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Betaldatum" class="control-label"></label>
+                <input asp-for="Betaldatum" class="form-control" />
+                <span asp-validation-for="Betaldatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VarReferens" class="control-label"></label>
+                <input asp-for="VarReferens" class="form-control" />
+                <span asp-validation-for="VarReferens" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ErRefForN" class="control-label"></label>
+                <input asp-for="ErRefForN" class="form-control" />
+                <span asp-validation-for="ErRefForN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kommentar" class="control-label"></label>
+                <input asp-for="Kommentar" class="form-control" />
+                <span asp-validation-for="Kommentar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ErRefEfterN" class="control-label"></label>
+                <input asp-for="ErRefEfterN" class="form-control" />
+                <span asp-validation-for="ErRefEfterN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Villkor" class="control-label"></label>
+                <input asp-for="Villkor" class="form-control" />
+                <span asp-validation-for="Villkor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Momssats" class="control-label"></label>
+                <input asp-for="Momssats" class="form-control" />
+                <span asp-validation-for="Momssats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VerNr" class="control-label"></label>
+                <select asp-for="VerNr" class="form-control" asp-items="ViewBag.VerNr"></select>
+                <span asp-validation-for="VerNr" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Godkann" /> @Html.DisplayNameFor(model => model.Godkann)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

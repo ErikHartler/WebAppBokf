@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebAppCRUD.Models.MallVerifikat>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Konto100Proc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OmDebet100Proc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anvands)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Frekvens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Belopp100Proc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OmKundnrSpec)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Konto100Proc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OmDebet100Proc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anvands)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frekvens)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Belopp100Proc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OmKundnrSpec)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Kortkod">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Kortkod">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Kortkod">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

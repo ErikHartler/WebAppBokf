@@ -1,0 +1,55 @@
+﻿@model WebAppCRUD.Models.Personal
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Personal</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fornamn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fornamn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Efternamn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Efternamn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefonnummer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefonnummer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mobiltelefon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mobiltelefon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Personalfunktion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Personalfunktion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntroViaknappar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntroViaknappar)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Signatur">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

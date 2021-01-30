@@ -1,0 +1,102 @@
+﻿@model IEnumerable<WebAppCRUD.Models.Kund>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kundnamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Box)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontPersFornamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KontPersEfternamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forfallodagar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kommentar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Villkor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ibkredit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kundnamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Box)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postnummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontPersFornamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontPersEfternamn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forfallodagar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kommentar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Villkor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ibkredit)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Kundnummer">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Kundnummer">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Kundnummer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

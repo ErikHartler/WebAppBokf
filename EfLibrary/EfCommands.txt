@@ -1,0 +1,4 @@
+﻿Install-Package Microsoft.EntityFrameworkCore
+
+Scaffold-DbContext -force -dataannotations  "Server=LAPTOP-LIEU5OJ9\SQLEXPRESS;Database=Bokforing;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir EFModels
+
