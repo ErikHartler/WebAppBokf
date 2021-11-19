@@ -1,4 +1,5 @@
 
+using EFData;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -6,7 +7,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WebAppCRUD.Controllers;
-using WebAppCRUD.Models;
 using Xunit;
 
 namespace XUnitTestProject1
@@ -21,17 +21,17 @@ namespace XUnitTestProject1
             for (int j=0; j < 10; j++)
             {
 
-                using (var  context = new BokforingContext())
+                using (var  context = CreateDbConnection())
                 {
                     var fakturor = 
                         context.
                         Faktura.
                         AsNoTracking().
-                        Include(r=>r.Fakturarad).
+                        Include(r=>r.Fakturarads).
                         ToList();
                     foreach(var faktura in fakturor)
                     {
-                        foreach (var rad in faktura.Fakturarad)
+                        foreach (var rad in faktura.Fakturarads)
                         {
                             i++;
                         }
@@ -46,15 +46,31 @@ namespace XUnitTestProject1
         public  void IndexControllerExecutesToCompletion()
         {
             var start = DateTime.Now;
-            using (var context = new BokforingContext())
+            BokforingContext context = null;
+            FakturasController ctrl;
+            try
             {
-                using (var ctrl = new FakturasController(context)) 
-                {
-                    var resultAsync = ctrl.Index();
-                    resultAsync.Wait();                   
-                    Assert.True(resultAsync.Status == TaskStatus.RanToCompletion,$"Task Status:{resultAsync.Status}");
-                }
+                context = CreateDbConnection();
+                var betalsatt =
+                        context.
+                        Betalsatt.
+                        AsNoTracking().
+                        FirstOrDefault();
+                ctrl = new FakturasController(context);
+                Task<Microsoft.AspNetCore.Mvc.IActionResult> resultAsync = ctrl.Index();
+                resultAsync.Wait();
+                Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                context.Dispose();
+            }
+        
 
             Console.WriteLine($"{ItTook(start)}"); ;
         }
@@ -64,15 +80,32 @@ namespace XUnitTestProject1
         public void DetailsControllerExecutesToCompletion()
         {
             var start = DateTime.Now;
-            using (var context = new BokforingContext())
+            BokforingContext context = null;
+            FakturasController ctrl;
+            try
             {
-                using (var ctrl = new FakturasController(context))
-                {
-                    var resultAsync = ctrl.Details(1);
-                    resultAsync.Wait();
-                    Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
-                }
+                context = CreateDbConnection();
+                var betalsatt =
+                        context.
+                        Betalsatt.
+                        AsNoTracking().
+                        FirstOrDefault();
+                ctrl = new FakturasController(context);
+                var resultAsync = ctrl.Details(1);
+                resultAsync.Wait();
+                Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                context.Dispose();
+            }
+
+            
 
             Console.WriteLine($"{ItTook(start)}");
         }

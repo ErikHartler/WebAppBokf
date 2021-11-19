@@ -1,4 +1,11 @@
 ﻿Install-Package Microsoft.EntityFrameworkCore
 
+db first
+
 Scaffold-DbContext -force -dataannotations  "Server=LAPTOP-LIEU5OJ9\SQLEXPRESS;Database=Bokforing;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir EFModels
 
+Scaffold-DbContext -Connection "Data Source=MSI;Initial Catalog=Bokforing;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" -provider MicroSoft.EntityFrameworkCore.SqlServer -Force -Schemas dbo
+
+code first
+add-migration
+update-database

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebAppCRUD.Models;
-
+using EFData;
+using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class VerifikationsController : Controller
+    public class VerifikationsController : AbstractController
     {
-        private readonly BokforingContext _context;
+        //private readonly BokforingContext _context;
 
-        public VerifikationsController(BokforingContext context)
+        public VerifikationsController(BokforingContext context) :base(context)
         {
-            _context = context;
+            //_context = context;
         }
 
         // GET: Verifikations
@@ -36,7 +34,7 @@ namespace WebAppCRUD.Controllers
             var verifikation = await _context.Verifikation
                 .Include(v => v.FakturanrNavigation)
                 .Include(v => v.KundnummerNavigation)
-                .Include(v => v.Transaktion)
+                .Include(v => v.Transaktions)
                 .FirstOrDefaultAsync(m => m.Verifikation1 == id);
             if (verifikation == null)
             {
@@ -84,7 +82,7 @@ namespace WebAppCRUD.Controllers
             var verifikation = await _context.Verifikation
                .Include(v => v.FakturanrNavigation)
                .Include(v => v.KundnummerNavigation)
-               .Include(v => v.Transaktion)
+               .Include(v => v.Transaktions)
                .FirstOrDefaultAsync(m => m.Verifikation1 == id);
             if (verifikation == null)
             {

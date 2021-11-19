@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebAppCRUD.Models;
-
+using EFData;
+using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class MenyvalsController : Controller
+    public class MenyvalsController : AbstractController
     {
-        private readonly BokforingContext _context;
+        //private readonly BokforingContext _context;
 
-        public MenyvalsController(BokforingContext context)
+        public MenyvalsController(BokforingContext context) :base(context)
         {
-            _context = context;
+            //_context = context;
         }
 
         // GET: Menyvals

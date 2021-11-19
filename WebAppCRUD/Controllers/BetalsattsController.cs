@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using EFData;
+using EfLibrary.EFModels;
+using EfLibrary.EFModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebAppCRUD.Models;
 
 namespace WebAppCRUD.Controllers
 {
-    public class BetalsattsController : Controller
+    public class BetalsattsController : AbstractController
     {
-        private readonly BokforingContext _context;
+        //private readonly BokforingContext _context;
 
-        public BetalsattsController(BokforingContext context)
+        public BetalsattsController(BokforingContext context) :base(context)
         {
-            _context = context;
+            //_context = context;
         }
 
         // GET: Betalsatts

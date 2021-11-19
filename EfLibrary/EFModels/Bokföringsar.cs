@@ -1,22 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-#nullable disable
 
 namespace EfLibrary.EFModels
 {
-    [Table("Bokföringsar")]
     public partial class Bokföringsar
     {
-        [Key]
-        [StringLength(4)]
-        public string Bokforingsar { get; set; }
-        [Column(TypeName = "datetime")]
+        public string Bokforingsar { get; set; } = null!;
         public DateTime? Start { get; set; }
-        [Column(TypeName = "datetime")]
         public DateTime? Slut { get; set; }
         public bool OmStangt { get; set; }
     }

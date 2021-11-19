@@ -1,12 +1,12 @@
 
+using EFData;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using WebAppCRUD.Controllers;
-using WebAppCRUD.Models;
 using Xunit;
 
 namespace XUnitTestProject1
@@ -21,7 +21,7 @@ namespace XUnitTestProject1
             for (int j=0; j < 10; j++)
             {
 
-                using (var  context = new BokforingContext())
+                using (var  context = CreateDbConnection() )
                 {
                     var betalsattList = 
                         context.
@@ -39,41 +39,65 @@ namespace XUnitTestProject1
         }
 
         [Fact]
-        public  void IndexControllerExecutesToCompletion()
+        public  async Task IndexControllerExecutesToCompletion()
         {
             var start = DateTime.Now;
-            using (var context = new BokforingContext())
+            BokforingContext context = null;
+            BetalsattsController ctrl = null;
+            try
             {
-                using (var ctrl = new BetalsattsController(context)) 
-                {
-                    var resultAsync = ctrl.Index();
-                    resultAsync.Wait();                   
-                    Assert.True(resultAsync.Status == TaskStatus.RanToCompletion,$"Task Status:{resultAsync.Status}");
-                }
+                context = CreateDbConnection();
+                ctrl = new BetalsattsController(context);
+                var resultAsync = ctrl?.Index();
+                await resultAsync.WaitAsync(new CancellationToken());
+                Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
             }
+            catch (Exception)
+            {
 
-            Console.WriteLine($"{ItTook(start)}"); ;
+                throw;
+            }
+            finally
+            {
+                if (context!=null) await context.DisposeAsync();
+                ctrl?.Dispose();
+                Console.WriteLine($"{ItTook(start)}"); ;
+            }
+             
         }
 
 
         [Fact]
-        public void DetailsControllerExecutesToCompletion()
+        public async void DetailsControllerExecutesToCompletion()
         {
             var start = DateTime.Now;
-            using (var context = new BokforingContext())
+            BokforingContext context = null;
+            BetalsattsController ctrl = null;
+            try
             {
+                context = CreateDbConnection();
                 var betalsatt =
                         context.
                         Betalsatt.
                         AsNoTracking().
                         FirstOrDefault();
-                using (var ctrl = new BetalsattsController(context))
-                {
-                    var resultAsync = ctrl.Details(betalsatt.Betalsatt1);
-                    resultAsync.Wait();
-                    Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
-                }
+                ctrl = new BetalsattsController(context);
+                var resultAsync = ctrl.Details(betalsatt.Betalsatt1);
+                await resultAsync.WaitAsync(new CancellationToken());
+                Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (context != null) await context.DisposeAsync();
+                ctrl?.Dispose();
+                Console.WriteLine($"{ItTook(start)}"); ;
+            }
+             
 
             Console.WriteLine($"{ItTook(start)}");
         }
@@ -100,18 +124,30 @@ namespace XUnitTestProject1
         public void HttpInvokeDetailsOnIdThatExists()
         {
             var start = DateTime.Now;
-            using (var context = new BokforingContext())
+             
+            BokforingContext context = null;
+             
+            try
             {
+                context = CreateDbConnection();
                 var betalsatt =
                         context.
                         Betalsatt.
                         AsNoTracking().
                         FirstOrDefault();
-              
                 HttpResponseMessage result = HttpInvoke($"Betalsatts/Details/{betalsatt.Betalsatt1}");
                 Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
                 AssertHttpStatusOk(result);
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { 
+                context.Dispose(); 
+            }
+          
         }
 
         [Fact]

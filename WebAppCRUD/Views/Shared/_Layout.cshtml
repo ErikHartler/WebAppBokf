@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using EFData
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,13 +20,44 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+ @*                       @{
+                           
+                            using (var db = new BokforingContext(new DbContext))
+                            {
+                                List<MenyvalModel> menues = db.
+                                    Menyval
+                                      .AsQueryable()  
+                                      .Where(menyval=>menyval.Beskrivning!=null)  
+                                      .Select(menyval => new MenyvalModel
+                                      {
+                                          MenyBeskrivning = menyval.Meny ,
+                                          Controller = menyval.Form,
+                                          AspAction = menyval.Menyval1,
+                                          Beskrivning=menyval.Beskrivning,
+
+                                      })
+                                      .OrderBy(m => m.Beskrivning)
+                                      .ToList();
+
+                                string beskrivning = "";
+                                foreach (var meny in menues.Where(mv=>!string.IsNullOrEmpty(mv.Beskrivning)))
+                                {
+                                    <li class="nav-item dropdown">
+                                        @if (!meny.Beskrivning.Equals(beskrivning))
+                                        {
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @meny.Beskrivning
+                                            </a>
+                                        }
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" asp-area="" asp-controller="@meny.Controller" asp-action="@meny.AspAction">@meny.Beskrivning</a>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        }*@
                     </ul>
+
                 </div>
             </div>
         </nav>

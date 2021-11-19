@@ -1,4 +1,4 @@
-﻿@model WebAppCRUD.Models.Verifikation
+﻿@model  EfLibrary.EFModels.Verifikation
 
 @{
     ViewData["Title"] = "Details";
@@ -62,20 +62,20 @@
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().Verifikation)
+            @Html.DisplayNameFor(model => model.Transaktions.FirstOrDefault().Verifikation)
         </dt>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().Konto)
+            @Html.DisplayNameFor(model => model.Transaktions.FirstOrDefault().Konto)
         </dt>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().DebetKr)
+            @Html.DisplayNameFor(model => model.Transaktions.FirstOrDefault().DebetKr)
         </dt>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaktion.FirstOrDefault().KreditKr)
+            @Html.DisplayNameFor(model => model.Transaktions.FirstOrDefault().KreditKr)
         </dt>
     </dl>
 
-    @foreach (Transaktion trans in Model.Transaktion)
+    @foreach (Transaktion trans in Model.Transaktions)
     {
         
 <dl class="row">
@@ -101,10 +101,10 @@
         &nbsp;
     </dd>
     <dd class="col-sm-2">
-        @Math.Round(Model.Transaktion.Sum(t => t.DebetKr.Value), 2)
+        @Math.Round(Model.Transaktions.Sum(t => t.DebetKr.Value), 2)
     </dd>
     <dd class="col-sm-2">
-        @Math.Round(Model.Transaktion.Sum(t => t.KreditKr.Value), 2)
+        @Math.Round(Model.Transaktions.Sum(t => t.KreditKr.Value), 2)
     </dd>
 </dl>
 </div>

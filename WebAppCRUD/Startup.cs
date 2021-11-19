@@ -1,14 +1,10 @@
+using EFData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebAppCRUD.Models;
 
 namespace WebAppCRUD
 {
@@ -24,8 +20,11 @@ namespace WebAppCRUD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var environment = Configuration["Environment"];
             var connection = Configuration.GetConnectionString("Bokf");
-            services.AddDbContext<BokforingContext>(options=>options.UseSqlServer(connection));
+            services.AddDbContext<BokforingContext>
+                (options=>options.UseSqlServer(connection)
+                .EnableSensitiveDataLogging(environment=="Development"));
             services.AddControllersWithViews();
         }
 

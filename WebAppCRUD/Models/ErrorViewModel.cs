@@ -1,5 +1,4 @@
 using System;
-
 namespace WebAppCRUD.Models
 {
     public class ErrorViewModel

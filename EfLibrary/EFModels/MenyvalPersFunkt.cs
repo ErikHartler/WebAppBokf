@@ -1,28 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-#nullable disable
 
 namespace EfLibrary.EFModels
 {
-    [Table("Menyval_Pers_funkt")]
     public partial class MenyvalPersFunkt
     {
-        [Required]
-        [StringLength(20)]
-        public string Personalfunktion { get; set; }
-        public int? Menyvalsnummer { get; set; }
-        [Key]
         public int Id { get; set; }
+        public string Personalfunktion { get; set; } = null!;
+        public int? Menyvalsnummer { get; set; }
 
-        [ForeignKey(nameof(Menyvalsnummer))]
-        [InverseProperty(nameof(Menyval.MenyvalPersFunkts))]
-        public virtual Menyval MenyvalsnummerNavigation { get; set; }
-        [ForeignKey(nameof(Personalfunktion))]
-        [InverseProperty("MenyvalPersFunkts")]
-        public virtual Personalfunktion PersonalfunktionNavigation { get; set; }
+        public virtual Menyval? MenyvalsnummerNavigation { get; set; }
+        public virtual Personalfunktion PersonalfunktionNavigation { get; set; } = null!;
     }
 }

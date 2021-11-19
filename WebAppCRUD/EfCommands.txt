@@ -1,4 +1,10 @@
-﻿Install-Package Microsoft.EntityFrameworkCore
+﻿
+Install-Package Microsoft.EntityFrameworkCore
 
-Scaffold-DbContext -force -dataannotations  "Server=LAPTOP-LIEU5OJ9\SQLEXPRESS;Database=Bokforing;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext -force -dataannotations  "Server=.;Database=Bokforing;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
+dotnet ef dbcontext optimize --output -dir MyCompiledModels --namespace MyCompiledModels
+
+code first
+Add-migration
+update-database
