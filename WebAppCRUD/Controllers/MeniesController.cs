@@ -26,7 +26,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var meny = await _context.Meny
-                .FirstOrDefaultAsync(m => m.Meny1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (meny == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace WebAppCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Meny1,Beskrivning,Presentationsordning")] Meny meny)
         {
-            if (id != meny.Meny1)
+            if (id != meny.Kod)
             {
                 return NotFound();
             }
@@ -94,7 +94,7 @@ namespace WebAppCRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MenyExists(meny.Meny1))
+                    if (!MenyExists(meny.Kod))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var meny = await _context.Meny
-                .FirstOrDefaultAsync(m => m.Meny1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (meny == null)
             {
                 return NotFound();
@@ -139,7 +139,7 @@ namespace WebAppCRUD.Controllers
 
         private bool MenyExists(string id)
         {
-            return _context.Meny.Any(e => e.Meny1 == id);
+            return _context.Meny.Any(e => e.Kod == id);
         }
     }
 }

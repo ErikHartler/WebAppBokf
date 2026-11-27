@@ -12,7 +12,9 @@ namespace EfLibrary.EFModels
             Leverantors = new HashSet<Leverantor>();
         }
 
+        [System.ComponentModel.DataAnnotations.Display(Name = "Kod")]
         public string Kod { get; set; } = null!;
+        [System.ComponentModel.DataAnnotations.Display(Name = "Land")]
         public string Land { get; set; }
 
         public virtual ICollection<Faktura> Fakturas { get; set; }

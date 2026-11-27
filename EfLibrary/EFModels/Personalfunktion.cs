@@ -11,7 +11,9 @@ namespace EfLibrary.EFModels
             Personals = new HashSet<Personal>();
         }
 
+        [System.ComponentModel.DataAnnotations.Display(Name = "Funktion")]
         public string Funktion { get; set; } = null!;
+        [System.ComponentModel.DataAnnotations.Display(Name = "Beskrivning")]
         public string Beskrivning { get; set; }
 
         public virtual ICollection<MenyvalPersFunkt> MenyvalPersFunkts { get; set; }

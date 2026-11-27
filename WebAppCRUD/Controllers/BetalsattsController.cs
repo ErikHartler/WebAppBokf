@@ -27,7 +27,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var betalsatt = await _context.Betalsatt
-                .FirstOrDefaultAsync(m => m.Betalsatt1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (betalsatt == null)
             {
                 return NotFound();
@@ -81,7 +81,7 @@ namespace WebAppCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Betalsatt1,Beskrivning")] Betalsatt betalsatt)
         {
-            if (id != betalsatt.Betalsatt1)
+            if (id != betalsatt.Kod)
             {
                 return NotFound();
             }
@@ -95,7 +95,7 @@ namespace WebAppCRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BetalsattExists(betalsatt.Betalsatt1))
+                    if (!BetalsattExists(betalsatt.Kod))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var betalsatt = await _context.Betalsatt
-                .FirstOrDefaultAsync(m => m.Betalsatt1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (betalsatt == null)
             {
                 return NotFound();
@@ -140,7 +140,7 @@ namespace WebAppCRUD.Controllers
 
         private bool BetalsattExists(string id)
         {
-            return _context.Betalsatt.Any(e => e.Betalsatt1 == id);
+            return _context.Betalsatt.Any(e => e.Kod == id);
         }
     }
 }

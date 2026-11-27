@@ -10,8 +10,14 @@ namespace EfLibrary.EFModels
             Menyvals = new HashSet<Menyval>();
         }
 
-        public string Meny1 { get; set; } = null!;
+        [System.ComponentModel.DataAnnotations.Display(Name = "Meny")]
+        public string Kod { get; set; } = null!;
+
+#nullable enable
+        [System.ComponentModel.DataAnnotations.Display(Name = "Beskrivning")]
         public string? Beskrivning { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Presentationsordning")]
+#nullable restore
         public int? Presentationsordning { get; set; }
 
         public virtual ICollection<Menyval> Menyvals { get; set; }

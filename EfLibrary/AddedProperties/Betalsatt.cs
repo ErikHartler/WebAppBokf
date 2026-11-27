@@ -13,7 +13,7 @@ namespace EfLibrary.EFModels
             var betalsatt = new List<Betalsatt>();
             foreach (var role in Enum.GetValues<BetalsattValueStorage>())
             {
-               var valueToAdd = new Betalsatt { Betalsatt1 =role.ToString(),Beskrivning = role.ToString() };
+               var valueToAdd = new Betalsatt { Kod =role.ToString(),Beskrivning = role.ToString() };
                betalsatt.Add(valueToAdd);
             }
             modelBuilder.Entity<Betalsatt>().HasData(betalsatt);

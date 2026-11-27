@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Settings";
+
+    var menues = new[]
+    {
+        (Controller: "Betalsatts", Name: "Betalningssätt"),
+        (Controller: "Bokföringsar", Name: "Bokföringsår"),
+        (Controller: "Enhets", Name: "Enheter"),
+        (Controller: "Fakturas", Name: "Fakturor"),
+        (Controller: "Fakturarads", Name: "Fakturarader"),
+        (Controller: "Installningars", Name: "Inställningar"),
+        (Controller: "KontaktpersonKunds", Name: "Kontaktpersoner kunder"),
+        (Controller: "KontaktpersonLeverantors", Name: "Kontaktpersoner leverantörer"),
+        
+        (Controller: "Kostnadsbarares", Name: "Kostnadsbärare"),
+        (Controller: "Landskods", Name: "Landskoder"),
+        (Controller: "Leverantors", Name: "Leverantörer"),
+        (Controller: "MallVerifikats", Name: "Verifikatmallar"),
+        (Controller: "Menies", Name: "Menyer"),
+        (Controller: "Menyvals", Name: "Menyval"),
+        (Controller: "Personalfunktions", Name: "Personalfunktioner"),
+        (Controller: "Produkts", Name: "Produkter"),
+        (Controller: "Projekts", Name: "Projekt"),
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Inställningar</h1>
+    <p>Välj en del av systemet:</p>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    @foreach (var menu in menues)
+    {
+        <div class="col mb-3">
+            <a class="btn btn-outline-primary w-100" asp-controller="@menu.Controller" asp-action="Index">
+                @menu.Name
+            </a>
+        </div>
+    }
+</div>
+

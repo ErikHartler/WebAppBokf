@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EfLibrary.EFModels
 {
@@ -9,9 +10,10 @@ namespace EfLibrary.EFModels
         {
             Betalnings = new HashSet<Betalning>();
         }
-
-        public string Betalsatt1 { get; set; } = null!;
-        public string? Beskrivning { get; set; }
+        [Display(Name = "Kod")]
+        public string Kod { get; set; } = null!;
+        [Display(Name = "Beskrivning")]
+        public string Beskrivning { get; set; }
 
         public virtual ICollection<Betalning> Betalnings { get; set; }
     }

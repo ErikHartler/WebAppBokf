@@ -10,9 +10,11 @@
 <h4>Installningar</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+        <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="BokforingsarFrom" class="control-label"></label>
                 <input asp-for="BokforingsarFrom" class="form-control" />
@@ -23,6 +25,9 @@
                 <input asp-for="BokforingsarTom" class="form-control" />
                 <span asp-validation-for="BokforingsarTom" class="text-danger"></span>
             </div>
+         </div>
+            <div class="row">
+
             <div class="form-group">
                 <label asp-for="Bolagsnamn" class="control-label"></label>
                 <input asp-for="Bolagsnamn" class="form-control" />
@@ -33,6 +38,8 @@
                 <input asp-for="Organisationsnr" class="form-control" />
                 <span asp-validation-for="Organisationsnr" class="text-danger"></span>
             </div>
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="KontoIngMoms" class="control-label"></label>
                 <input asp-for="KontoIngMoms" class="form-control" />
@@ -78,13 +85,15 @@
                 <input asp-for="KontoFordranKund" class="form-control" />
                 <span asp-validation-for="KontoFordranKund" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+        </div>
+        </div>
+        <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

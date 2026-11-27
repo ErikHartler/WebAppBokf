@@ -21,14 +21,26 @@ namespace EfLibrary.EFModels
             Transaktions = new HashSet<Transaktion>();
         }
 
+        [System.ComponentModel.DataAnnotations.Display(Name = "Kontonummer")]
         public string Konto1 { get; set; } = null!;
-        public string? Arsredovisningsrad { get; set; }
-        public string? Benamning { get; set; }
-        public decimal? IbDebetKr { get; set; }
-        public decimal? IbKreditKr { get; set; }
-        public bool OmDebet { get; set; }
-        public string? Skattekonto { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Display(Name = "Debetkonto?")]
+        public bool OmDebet { get; set; }
+
+
+#nullable enable
+        [System.ComponentModel.DataAnnotations.Display(Name = "Årsredovisningsrad")]
+        public string? Arsredovisningsrad { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Benämning")]
+        public string? Benamning { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Ingående debet kr")]
+        public decimal? IbDebetKr { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Ingående kredit kr")]
+        public decimal? IbKreditKr { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Display(Name = "Skattekonto")]
+        public string? Skattekonto { get; set; }
+#nullable restore
         public virtual ICollection<Installningar> InstallningarKontoFordranFromNavigations { get; set; }
         public virtual ICollection<Installningar> InstallningarKontoFordranKundNavigations { get; set; }
         public virtual ICollection<Installningar> InstallningarKontoFordranTomNavigations { get; set; }

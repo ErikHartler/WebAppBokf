@@ -27,7 +27,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var enhet = await _context.Enhet
-                .FirstOrDefaultAsync(m => m.Enhet1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (enhet == null)
             {
                 return NotFound();
@@ -81,7 +81,7 @@ namespace WebAppCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Enhet1,Beskrivning")] Enhet enhet)
         {
-            if (id != enhet.Enhet1)
+            if (id != enhet.Kod)
             {
                 return NotFound();
             }
@@ -95,7 +95,7 @@ namespace WebAppCRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EnhetExists(enhet.Enhet1))
+                    if (!EnhetExists(enhet.Kod))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var enhet = await _context.Enhet
-                .FirstOrDefaultAsync(m => m.Enhet1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (enhet == null)
             {
                 return NotFound();
@@ -140,7 +140,7 @@ namespace WebAppCRUD.Controllers
 
         private bool EnhetExists(string id)
         {
-            return _context.Enhet.Any(e => e.Enhet1 == id);
+            return _context.Enhet.Any(e => e.Kod == id);
         }
     }
 }

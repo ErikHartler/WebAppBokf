@@ -7,14 +7,17 @@ namespace WebAppCRUD.Controllers
 {
     public class HomeController(ILogger<HomeController> logger) : AbstractController(logger)
     {
-        //private readonly ILogger<HomeController> _logger;
+        
 
 
         public IActionResult Index()
         {
             return View();
         }
-
+        public IActionResult Settings()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

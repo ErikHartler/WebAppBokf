@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace EfLibrary.EFModels
 {
@@ -13,8 +14,10 @@ namespace EfLibrary.EFModels
             Produkts = new HashSet<Produkt>();
         }
 
-        public string Enhet1 { get; set; } = null!;
-        public string? Beskrivning { get; set; }
+        [Display(Name = "Kod")]
+        public string Kod { get; set; } = null!;
+        [Display(Name = "Beskrivning")]
+        public string Beskrivning { get; set; }
 
         public virtual ICollection<Fakturarad> Fakturarads { get; set; }
         public virtual ICollection<LevFakturaRad> LevFakturaRads { get; set; }

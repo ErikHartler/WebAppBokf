@@ -86,7 +86,7 @@ namespace XUnitTestProject1
                         AsNoTracking().
                         FirstOrDefault();
                 ctrl = new BetalsattsController(context);
-                var resultAsync = ctrl.Details(betalsatt.Betalsatt1);
+                var resultAsync = ctrl.Details(betalsatt.Kod);
                 await resultAsync.WaitAsync(new CancellationToken());
                 Assert.True(resultAsync.Status == TaskStatus.RanToCompletion, $"Task Status:{resultAsync.Status}");
             }
@@ -143,7 +143,7 @@ namespace XUnitTestProject1
                         Betalsatt.
                         AsNoTracking().
                         FirstOrDefault();
-                var result = HttpInvoke($"Betalsatts/Details/{betalsatt.Betalsatt1}");
+                var result = HttpInvoke($"Betalsatts/Details/{betalsatt.Kod}");
                 Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
                 AssertHttpStatusOk(result);
             }
