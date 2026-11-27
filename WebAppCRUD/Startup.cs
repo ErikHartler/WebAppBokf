@@ -1,30 +1,18 @@
-using EFData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace WebAppCRUD
 {
-    public class Startup
+    public class Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; } = configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var environment = Configuration["Environment"];
-            var connection = Configuration.GetConnectionString("Bokf");
-            services.AddDbContext<BokforingContext>
-                (options=>options.UseSqlServer(connection)
-                .EnableSensitiveDataLogging(environment=="Development"));
             services.AddControllersWithViews();
         }
 

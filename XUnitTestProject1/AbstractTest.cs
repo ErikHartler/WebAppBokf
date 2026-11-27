@@ -31,7 +31,7 @@ namespace XUnitTestProject1
         {
             Configuration = LoadConfiguration();
 
-            var connString = Configuration.GetConnectionString("DefaultConnection");
+            string connString = Configuration.GetConnectionString("Bokf");
             var options = new DbContextOptionsBuilder<BokforingContext>()
                .UseSqlServer(connString)
                .Options;
@@ -54,7 +54,7 @@ namespace XUnitTestProject1
         {
             using var client = new HttpClient();
             string url = $"http://localhost:51108/{page}";
-            HttpResponseMessage result =  client.GetAsync(url).Result;
+            var result =  client.GetAsync(url).Result;
             return result;
         }
 

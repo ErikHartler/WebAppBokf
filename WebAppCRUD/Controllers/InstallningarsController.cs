@@ -7,14 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebAppCRUD.Controllers
 {
-    public class InstallningarsController : AbstractController
+    public class InstallningarsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public InstallningarsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Installningars
         public async Task<IActionResult> Index()

@@ -6,14 +6,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class LandskodsController : AbstractController
+    public class LandskodsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public LandskodsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Landskods
         public async Task<IActionResult> Index()
@@ -30,7 +26,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var landskod = await _context.Landskod
-                .FirstOrDefaultAsync(m => m.Landskod1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (landskod == null)
             {
                 return NotFound();
@@ -84,7 +80,7 @@ namespace WebAppCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Landskod1,Land")] Landskod landskod)
         {
-            if (id != landskod.Landskod1)
+            if (id != landskod.Kod)
             {
                 return NotFound();
             }
@@ -98,7 +94,7 @@ namespace WebAppCRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LandskodExists(landskod.Landskod1))
+                    if (!LandskodExists(landskod.Kod))
                     {
                         return NotFound();
                     }
@@ -121,7 +117,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var landskod = await _context.Landskod
-                .FirstOrDefaultAsync(m => m.Landskod1 == id);
+                .FirstOrDefaultAsync(m => m.Kod == id);
             if (landskod == null)
             {
                 return NotFound();
@@ -143,7 +139,7 @@ namespace WebAppCRUD.Controllers
 
         private bool LandskodExists(string id)
         {
-            return _context.Landskod.Any(e => e.Landskod1 == id);
+            return _context.Landskod.Any(e => e.Kod == id);
         }
     }
 }

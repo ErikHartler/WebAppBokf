@@ -6,14 +6,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class KostnadsbararesController : AbstractController
+    public class KostnadsbararesController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public KostnadsbararesController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Kostnadsbarares
         public async Task<IActionResult> Index()

@@ -8,14 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebAppCRUD.Controllers
 {
-    public class FakturaradsController : AbstractController
+    public class FakturaradsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public FakturaradsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Fakturarads
         public async Task<IActionResult> Index()

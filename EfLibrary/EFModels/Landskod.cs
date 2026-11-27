@@ -12,8 +12,8 @@ namespace EfLibrary.EFModels
             Leverantors = new HashSet<Leverantor>();
         }
 
-        public string Landskod1 { get; set; } = null!;
-        public string? Land { get; set; }
+        public string Kod { get; set; } = null!;
+        public string Land { get; set; }
 
         public virtual ICollection<Faktura> Fakturas { get; set; }
         public virtual ICollection<Kund> Kunds { get; set; }

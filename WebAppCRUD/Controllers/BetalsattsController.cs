@@ -2,20 +2,15 @@
 using System.Threading.Tasks;
 using EFData;
 using EfLibrary.EFModels;
-using EfLibrary.EFModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebAppCRUD.Controllers
 {
-    public class BetalsattsController : AbstractController
+    public class BetalsattsController(BokforingContext context) : AbstractController(context)
     {
-        //private readonly BokforingContext _context;
+        
 
-        public BetalsattsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Betalsatts
         public async Task<IActionResult> Index()

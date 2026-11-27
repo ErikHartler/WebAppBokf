@@ -7,14 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebAppCRUD.Controllers
 {
-    public class EnhetsController : AbstractController
+    public class EnhetsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public EnhetsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Enhets
         public async Task<IActionResult> Index()

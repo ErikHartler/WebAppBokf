@@ -7,14 +7,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class LeverantorsController : AbstractController
+    public class LeverantorsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public LeverantorsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Leverantors
         public async Task<IActionResult> Index()

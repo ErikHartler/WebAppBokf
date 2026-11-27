@@ -5,14 +5,10 @@ using WebAppCRUD.Models;
 
 namespace WebAppCRUD.Controllers
 {
-    public class HomeController : AbstractController
+    public class HomeController(ILogger<HomeController> logger) : AbstractController(logger)
     {
         //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger):base(logger)
-        {
-            //_logger = logger;
-        }
 
         public IActionResult Index()
         {

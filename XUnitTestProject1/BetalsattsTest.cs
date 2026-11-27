@@ -59,7 +59,11 @@ namespace XUnitTestProject1
             }
             finally
             {
-                if (context!=null) await context.DisposeAsync();
+                if (context!=null)
+                {
+                    await context.DisposeAsync();
+                }
+
                 ctrl?.Dispose();
                 Console.WriteLine($"{ItTook(start)}"); ;
             }
@@ -68,7 +72,7 @@ namespace XUnitTestProject1
 
 
         [Fact]
-        public async void DetailsControllerExecutesToCompletion()
+        public async Task DetailsControllerExecutesToCompletion()
         {
             var start = DateTime.Now;
             BokforingContext context = null;
@@ -93,7 +97,11 @@ namespace XUnitTestProject1
             }
             finally
             {
-                if (context != null) await context.DisposeAsync();
+                if (context != null)
+                {
+                    await context.DisposeAsync();
+                }
+
                 ctrl?.Dispose();
                 Console.WriteLine($"{ItTook(start)}"); ;
             }
@@ -106,7 +114,7 @@ namespace XUnitTestProject1
         public void HttpInvokeFakturasTop()
         {
             var start = DateTime.Now;
-            HttpResponseMessage result = HttpInvoke("Betalsatts");
+            var result = HttpInvoke("Betalsatts");
             Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
             AssertHttpStatusOk(result);
         }
@@ -115,7 +123,7 @@ namespace XUnitTestProject1
         public void HttpInvokeFakturasIndex()
         {
             var start = DateTime.Now;
-            HttpResponseMessage result =HttpInvoke("Betalsatts/Index");
+            var result =HttpInvoke("Betalsatts/Index");
             Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
             AssertHttpStatusOk(result);
         }
@@ -135,7 +143,7 @@ namespace XUnitTestProject1
                         Betalsatt.
                         AsNoTracking().
                         FirstOrDefault();
-                HttpResponseMessage result = HttpInvoke($"Betalsatts/Details/{betalsatt.Betalsatt1}");
+                var result = HttpInvoke($"Betalsatts/Details/{betalsatt.Betalsatt1}");
                 Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
                 AssertHttpStatusOk(result);
             }
@@ -154,7 +162,7 @@ namespace XUnitTestProject1
         public void HttpInvokeDetailsOnIdThatDoesNotExists()
         {
             var start = DateTime.Now;
-            HttpResponseMessage result = HttpInvoke("Betalsatts/Details/9999");
+            var result = HttpInvoke("Betalsatts/Details/9999");
             Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
             AssertHttpStatusNotFound(result);
         }
@@ -164,7 +172,7 @@ namespace XUnitTestProject1
         public void HttpInvokeDetailsOnPageThatDoesNotExists()
         {
             var start = DateTime.Now;
-            HttpResponseMessage result = HttpInvoke("Betalsatts/Detailsxx/9999");
+            var result = HttpInvoke("Betalsatts/Detailsxx/9999");
             Console.WriteLine($"Status:{result.StatusCode}. {ItTook(start)}");
             AssertHttpStatusNotFound(result);
         }

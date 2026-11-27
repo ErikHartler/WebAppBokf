@@ -7,14 +7,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class RapportRadsController : AbstractController
+    public class RapportRadsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public RapportRadsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: RapportRads
         public async Task<IActionResult> Index()

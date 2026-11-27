@@ -7,14 +7,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class MallTransaktionersController : AbstractController
+    public class MallTransaktionersController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public MallTransaktionersController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: MallTransaktioners
         public async Task<IActionResult> Index()

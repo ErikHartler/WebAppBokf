@@ -16,7 +16,7 @@ namespace XUnitTestProject1
         [Fact]
         public void DbTableIncludesFakturaFakturaRader()
         {
-            BokforingContext? db;
+            BokforingContext db;
             string sql = "";
             try
             {
@@ -24,16 +24,14 @@ namespace XUnitTestProject1
                 foreach (var item in db.Model.GetEntityTypes())
                 {
                     var entityType = item.GetType();
-                    if (string.IsNullOrEmpty(item.GetTableName()))
+                    if (!string.IsNullOrEmpty(item.GetTableName()))
                     {
-                        sql = $"Select * from {item.Name.Split('.')[1]}";
-                    }
-                    else
-                    {
+                    
                         sql = $"Select * from {item.GetTableName()}";
+                        db.Database.ExecuteSqlRaw(sql);
                     }
 
-                    db.Database.ExecuteSqlRaw(sql);
+                    
 
                 }
 

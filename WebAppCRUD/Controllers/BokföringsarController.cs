@@ -2,20 +2,15 @@
 using System.Threading.Tasks;
 using EFData;
 using EfLibrary.EFModels;
-using EfLibrary.EFModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebAppCRUD.Controllers
 {
-    public class BokföringsarController : AbstractController
+    public class BokföringsarController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public BokföringsarController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Bokföringsar
         public async Task<IActionResult> Index()

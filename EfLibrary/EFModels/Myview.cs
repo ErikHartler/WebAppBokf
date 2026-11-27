@@ -6,7 +6,7 @@ namespace EfLibrary.EFModels
     public partial class Myview
     {
         public int Verifikation { get; set; }
-        public string? Beskrivning { get; set; }
+        public string Beskrivning { get; set; }
         public DateTime? Transaktionsdatum { get; set; }
         public decimal? DebetKr { get; set; }
         public decimal? KreditKr { get; set; }

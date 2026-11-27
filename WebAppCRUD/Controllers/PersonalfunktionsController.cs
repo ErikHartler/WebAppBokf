@@ -6,14 +6,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class PersonalfunktionsController : AbstractController
+    public class PersonalfunktionsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public PersonalfunktionsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Personalfunktions
         public async Task<IActionResult> Index()
@@ -30,7 +26,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var personalfunktion = await _context.Personalfunktion
-                .FirstOrDefaultAsync(m => m.Personalfunktion1 == id);
+                .FirstOrDefaultAsync(m => m.Funktion == id);
             if (personalfunktion == null)
             {
                 return NotFound();
@@ -84,7 +80,7 @@ namespace WebAppCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Personalfunktion1,Beskrivning")] Personalfunktion personalfunktion)
         {
-            if (id != personalfunktion.Personalfunktion1)
+            if (id != personalfunktion.Funktion)
             {
                 return NotFound();
             }
@@ -98,7 +94,7 @@ namespace WebAppCRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonalfunktionExists(personalfunktion.Personalfunktion1))
+                    if (!PersonalfunktionExists(personalfunktion.Funktion))
                     {
                         return NotFound();
                     }
@@ -121,7 +117,7 @@ namespace WebAppCRUD.Controllers
             }
 
             var personalfunktion = await _context.Personalfunktion
-                .FirstOrDefaultAsync(m => m.Personalfunktion1 == id);
+                .FirstOrDefaultAsync(m => m.Funktion == id);
             if (personalfunktion == null)
             {
                 return NotFound();
@@ -143,7 +139,7 @@ namespace WebAppCRUD.Controllers
 
         private bool PersonalfunktionExists(string id)
         {
-            return _context.Personalfunktion.Any(e => e.Personalfunktion1 == id);
+            return _context.Personalfunktion.Any(e => e.Funktion == id);
         }
     }
 }

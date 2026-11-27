@@ -6,14 +6,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class MeniesController : AbstractController
+    public class MeniesController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public MeniesController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: Menies
         public async Task<IActionResult> Index()

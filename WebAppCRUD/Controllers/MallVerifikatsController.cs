@@ -6,14 +6,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class MallVerifikatsController : AbstractController
+    public class MallVerifikatsController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public MallVerifikatsController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: MallVerifikats
         public async Task<IActionResult> Index()

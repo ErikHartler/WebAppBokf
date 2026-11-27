@@ -7,17 +7,17 @@ namespace EfLibrary.EFModels
     public partial class Enhet
     {
       
-        enum EnhetValueStorage { Timmar,Totalt}
+        private enum EnhetValueStorage { Timmar,Totalt}
         public static void SeedData(ModelBuilder modelBuilder)
         {
-            var enhet = new List<Enhet>();
-            foreach (EnhetValueStorage role in Enum.GetValues(typeof(EnhetValueStorage)))
+            var enheter = new List<Enhet>();
+            foreach (var role in Enum.GetValues<EnhetValueStorage>())
             {
                var valueToAdd = new Enhet { Enhet1 =role.ToString(),Beskrivning = role.ToString() };
-               enhet.Add(valueToAdd);
+               enheter.Add(valueToAdd);
             }
-            modelBuilder.Entity<Enhet>().HasData(enhet);
-
+            modelBuilder.Entity<Enhet>().HasData(enheter);
+            Console.WriteLine($"Added {enheter.Count} enheter");
         }
     }
 }

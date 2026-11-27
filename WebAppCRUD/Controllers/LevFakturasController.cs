@@ -7,14 +7,10 @@ using EFData;
 using EfLibrary.EFModels;
 namespace WebAppCRUD.Controllers
 {
-    public class LevFakturasController : AbstractController
+    public class LevFakturasController(BokforingContext context) : AbstractController(context)
     {
         //private readonly BokforingContext _context;
 
-        public LevFakturasController(BokforingContext context) :base(context)
-        {
-            //_context = context;
-        }
 
         // GET: LevFakturas
         public async Task<IActionResult> Index()
