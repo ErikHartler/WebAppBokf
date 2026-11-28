@@ -13,89 +13,90 @@
     
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label asp-for="BokforingsarFrom" class="control-label"></label>
-                <input asp-for="BokforingsarFrom" class="form-control" />
-                <span asp-validation-for="BokforingsarFrom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BokforingsarTom" class="control-label"></label>
-                <input asp-for="BokforingsarTom" class="form-control" />
-                <span asp-validation-for="BokforingsarTom" class="text-danger"></span>
-            </div>
-         </div>
             <div class="row">
+                <div class="form-group">
+                    <label asp-for="BokforingsarFrom" class="control-label"></label>
+                    <input asp-for="BokforingsarFrom" class="form-control" />
+                    <span asp-validation-for="BokforingsarFrom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BokforingsarTom" class="control-label"></label>
+                    <input asp-for="BokforingsarTom" class="form-control" />
+                    <span asp-validation-for="BokforingsarTom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bolagsnamn" class="control-label"></label>
+                    <input asp-for="Bolagsnamn" class="form-control" />
+                    <span asp-validation-for="Bolagsnamn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Organisationsnr" class="control-label"></label>
+                    <input asp-for="Organisationsnr" class="form-control" />
+                    <span asp-validation-for="Organisationsnr" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="KontoIngMoms" class="control-label"></label>
+                    <input asp-for="KontoIngMoms" class="form-control" />
+                    <span asp-validation-for="KontoIngMoms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KontoUtgMoms" class="control-label"></label>
+                    <input asp-for="KontoUtgMoms" class="form-control" />
+                    <span asp-validation-for="KontoUtgMoms" class="text-danger"></span>
+                </div>
+       
 
-            <div class="form-group">
-                <label asp-for="Bolagsnamn" class="control-label"></label>
-                <input asp-for="Bolagsnamn" class="form-control" />
-                <span asp-validation-for="Bolagsnamn" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="KontoMomsAvstamning" class="control-label"></label>
+                    <input asp-for="KontoMomsAvstamning" class="form-control" />
+                    <span asp-validation-for="KontoMomsAvstamning" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KontoIntakterFrom" class="control-label"></label>
+                    <input asp-for="KontoIntakterFrom" class="form-control" />
+                    <span asp-validation-for="KontoIntakterFrom" class="text-danger"></span>        
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Organisationsnr" class="control-label"></label>
-                <input asp-for="Organisationsnr" class="form-control" />
-                <span asp-validation-for="Organisationsnr" class="text-danger"></span>
+       
+            <div class="row">
+                        <div class="form-group">
+                    <label asp-for="KontoIntakterTom" class="control-label"></label>
+                    <input asp-for="KontoIntakterTom" class="form-control" />
+                    <span asp-validation-for="KontoIntakterTom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KontoIntakterKund" class="control-label"></label>
+                    <input asp-for="KontoIntakterKund" class="form-control" />
+                    <span asp-validation-for="KontoIntakterKund" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KontoFordranFrom" class="control-label"></label>
+                    <input asp-for="KontoFordranFrom" class="form-control" />
+                    <span asp-validation-for="KontoFordranFrom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KontoFordranTom" class="control-label"></label>
+                    <input asp-for="KontoFordranTom" class="form-control" />
+                    <span asp-validation-for="KontoFordranTom" class="text-danger"></span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="KontoIngMoms" class="control-label"></label>
-                <input asp-for="KontoIngMoms" class="form-control" />
-                <span asp-validation-for="KontoIngMoms" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="KontoFordranKund" class="control-label"></label>
+                    <input asp-for="KontoFordranKund" class="form-control" />
+                    <span asp-validation-for="KontoFordranKund" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="KontoUtgMoms" class="control-label"></label>
-                <input asp-for="KontoUtgMoms" class="form-control" />
-                <span asp-validation-for="KontoUtgMoms" class="text-danger"></span>
+                <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+    
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="KontoMomsAvstamning" class="control-label"></label>
-                <input asp-for="KontoMomsAvstamning" class="form-control" />
-                <span asp-validation-for="KontoMomsAvstamning" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoIntakterFrom" class="control-label"></label>
-                <input asp-for="KontoIntakterFrom" class="form-control" />
-                <span asp-validation-for="KontoIntakterFrom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoIntakterTom" class="control-label"></label>
-                <input asp-for="KontoIntakterTom" class="form-control" />
-                <span asp-validation-for="KontoIntakterTom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoIntakterKund" class="control-label"></label>
-                <input asp-for="KontoIntakterKund" class="form-control" />
-                <span asp-validation-for="KontoIntakterKund" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoFordranFrom" class="control-label"></label>
-                <input asp-for="KontoFordranFrom" class="form-control" />
-                <span asp-validation-for="KontoFordranFrom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoFordranTom" class="control-label"></label>
-                <input asp-for="KontoFordranTom" class="form-control" />
-                <span asp-validation-for="KontoFordranTom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="KontoFordranKund" class="control-label"></label>
-                <input asp-for="KontoFordranKund" class="form-control" />
-                <span asp-validation-for="KontoFordranKund" class="text-danger"></span>
-            </div>
-        </div>
-        </div>
-        <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-
-
-<div>
+        <div>
     <a asp-action="Index">Back to List</a>
 </div>
 

@@ -10,10 +10,10 @@
 <h4>Personal</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form asp-action="Create" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="row"><div class="form-group">
                 <label asp-for="Signatur" class="control-label"></label>
                 <input asp-for="Signatur" class="form-control" />
                 <span asp-validation-for="Signatur" class="text-danger"></span>
@@ -32,8 +32,8 @@
                 <label asp-for="Telefonnummer" class="control-label"></label>
                 <input asp-for="Telefonnummer" class="form-control" />
                 <span asp-validation-for="Telefonnummer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Mobiltelefon" class="control-label"></label>
                 <input asp-for="Mobiltelefon" class="form-control" />
                 <span asp-validation-for="Mobiltelefon" class="text-danger"></span>
@@ -50,7 +50,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div></div>
         </form>
     </div>
 </div>

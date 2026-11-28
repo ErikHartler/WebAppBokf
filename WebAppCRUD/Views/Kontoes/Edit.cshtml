@@ -13,6 +13,7 @@
     <div class="col-md-12">
         <form asp-action="Edit" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
             <input type="hidden" asp-for="Konto1" />
             <div class="form-group">
                 <label asp-for="Arsredovisningsrad" class="control-label"></label>
@@ -34,6 +35,8 @@
                 <input asp-for="IbKreditKr" class="form-control" />
                 <span asp-validation-for="IbKreditKr" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="OmDebet" /> @Html.DisplayNameFor(model => model.OmDebet)
@@ -46,6 +49,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
             </div>
         </form>
     </div>

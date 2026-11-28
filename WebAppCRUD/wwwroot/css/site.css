@@ -73,8 +73,42 @@ body {
   grid-column: 1 / -1;
 }
 
+.edit-form-grid > .row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 1.5rem;
+}
+
+.edit-form-grid > .row > .form-group:last-child {
+  grid-column: 1 / -1;
+}
+
+.details-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 1.5rem;
+}
+
+.details-field {
+  min-width: 0;
+}
+
+.details-field dt,
+.details-field dd {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+}
+
 @media (max-width: 767.98px) {
   .edit-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edit-form-grid > .row,
+  .details-row {
     grid-template-columns: 1fr;
   }
 }

@@ -10,10 +10,10 @@
 <h4>Kund</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form asp-action="Create" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="row"><div class="form-group">
                 <label asp-for="Kundnummer" class="control-label"></label>
                 <input asp-for="Kundnummer" class="form-control" />
                 <span asp-validation-for="Kundnummer" class="text-danger"></span>
@@ -32,8 +32,8 @@
                 <label asp-for="Postnummer" class="control-label"></label>
                 <input asp-for="Postnummer" class="form-control" />
                 <span asp-validation-for="Postnummer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Ort" class="control-label"></label>
                 <input asp-for="Ort" class="form-control" />
                 <span asp-validation-for="Ort" class="text-danger"></span>
@@ -52,8 +52,8 @@
                 <label asp-for="Forfallodagar" class="control-label"></label>
                 <input asp-for="Forfallodagar" class="form-control" />
                 <span asp-validation-for="Forfallodagar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Telefon" class="control-label"></label>
                 <input asp-for="Telefon" class="form-control" />
                 <span asp-validation-for="Telefon" class="text-danger"></span>
@@ -72,15 +72,15 @@
                 <label asp-for="Villkor" class="control-label"></label>
                 <input asp-for="Villkor" class="form-control" />
                 <span asp-validation-for="Villkor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Ibkredit" class="control-label"></label>
                 <input asp-for="Ibkredit" class="form-control" />
                 <span asp-validation-for="Ibkredit" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div></div>
         </form>
     </div>
 </div>

@@ -13,6 +13,7 @@
     <div class="col-md-12">
         <form asp-action="Edit" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Kundnr" class="control-label"></label>
                 <input asp-for="Kundnr" class="form-control" />
@@ -34,6 +35,8 @@
                 <input asp-for="Beskrivning" class="form-control" />
                 <span asp-validation-for="Beskrivning" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Projektledare" class="control-label"></label>
                 <input asp-for="Projektledare" class="form-control" />
@@ -54,6 +57,8 @@
                 <input asp-for="VarReferens" class="form-control" />
                 <span asp-validation-for="VarReferens" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="ErReferens" class="control-label"></label>
                 <input asp-for="ErReferens" class="form-control" />
@@ -61,6 +66,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
             </div>
         </form>
     </div>

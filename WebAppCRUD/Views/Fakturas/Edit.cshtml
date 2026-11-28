@@ -13,6 +13,7 @@
     <div class="col-md-12">
         <form asp-action="Edit" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
             <input type="hidden" asp-for="Fakturanummer" />
             <div class="form-group">
                 <label asp-for="Fakturadatum" class="control-label"></label>
@@ -34,6 +35,8 @@
                 <select asp-for="Kundnummer" class="form-control" asp-items="ViewBag.Kundnummer"></select>
                 <span asp-validation-for="Kundnummer" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Kundnamn" class="control-label"></label>
                 <input asp-for="Kundnamn" class="form-control" />
@@ -54,6 +57,8 @@
                 <input asp-for="Ort" class="form-control" />
                 <span asp-validation-for="Ort" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="BeloppExklMoms" class="control-label"></label>
                 <input asp-for="BeloppExklMoms" class="form-control" />
@@ -74,6 +79,8 @@
                 <input asp-for="BetaltKr" class="form-control" />
                 <span asp-validation-for="BetaltKr" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Betaldatum" class="control-label"></label>
                 <input asp-for="Betaldatum" class="form-control" />
@@ -94,6 +101,8 @@
                 <input asp-for="Kommentar" class="form-control" />
                 <span asp-validation-for="Kommentar" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="ErRefEfterN" class="control-label"></label>
                 <input asp-for="ErRefEfterN" class="form-control" />
@@ -114,6 +123,8 @@
                 <input asp-for="VerNr" class="form-control" />
                 <span asp-validation-for="VerNr" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Paminnelse1" class="control-label"></label>
                 <input asp-for="Paminnelse1" class="form-control" />
@@ -134,6 +145,8 @@
                 <input asp-for="UtestaendeFordr" class="form-control" />
                 <span asp-validation-for="UtestaendeFordr" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
                 <label asp-for="Coadress" class="control-label"></label>
                 <input asp-for="Coadress" class="form-control" />
@@ -154,8 +167,10 @@
                 <input asp-for="Projekt" class="form-control" />
                 <span asp-validation-for="Projekt" class="text-danger"></span>
             </div>
+            </div>
+            <div class="row">
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />            </div>
             </div>
         </form>
     </div>

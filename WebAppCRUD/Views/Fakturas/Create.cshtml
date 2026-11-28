@@ -10,10 +10,10 @@
 <h4>Faktura</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form asp-action="Create" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="row"><div class="form-group">
                 <label asp-for="Fakturanummer" class="control-label"></label>
                 <input asp-for="Fakturanummer" class="form-control" />
                 <span asp-validation-for="Fakturanummer" class="text-danger"></span>
@@ -32,8 +32,8 @@
                 <label asp-for="Utskriftsdatum" class="control-label"></label>
                 <input asp-for="Utskriftsdatum" class="form-control" />
                 <span asp-validation-for="Utskriftsdatum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Kundnummer" class="control-label"></label>
                 <select asp-for="Kundnummer" class ="form-control" asp-items="ViewBag.Kundnummer"></select>
             </div>
@@ -51,8 +51,8 @@
                 <label asp-for="Postnummer" class="control-label"></label>
                 <input asp-for="Postnummer" class="form-control" />
                 <span asp-validation-for="Postnummer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Ort" class="control-label"></label>
                 <input asp-for="Ort" class="form-control" />
                 <span asp-validation-for="Ort" class="text-danger"></span>
@@ -71,8 +71,8 @@
                 <label asp-for="BeloppInklMomsKr" class="control-label"></label>
                 <input asp-for="BeloppInklMomsKr" class="form-control" />
                 <span asp-validation-for="BeloppInklMomsKr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="BetaltKr" class="control-label"></label>
                 <input asp-for="BetaltKr" class="form-control" />
                 <span asp-validation-for="BetaltKr" class="text-danger"></span>
@@ -91,8 +91,8 @@
                 <label asp-for="ErRefForN" class="control-label"></label>
                 <input asp-for="ErRefForN" class="form-control" />
                 <span asp-validation-for="ErRefForN" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Kommentar" class="control-label"></label>
                 <input asp-for="Kommentar" class="form-control" />
                 <span asp-validation-for="Kommentar" class="text-danger"></span>
@@ -111,8 +111,8 @@
                 <label asp-for="Momssats" class="control-label"></label>
                 <input asp-for="Momssats" class="form-control" />
                 <span asp-validation-for="Momssats" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="VerNr" class="control-label"></label>
                 <input asp-for="VerNr" class="form-control" />
                 <span asp-validation-for="VerNr" class="text-danger"></span>
@@ -131,8 +131,8 @@
                 <label asp-for="Inkasso" class="control-label"></label>
                 <input asp-for="Inkasso" class="form-control" />
                 <span asp-validation-for="Inkasso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="UtestaendeFordr" class="control-label"></label>
                 <input asp-for="UtestaendeFordr" class="form-control" />
                 <span asp-validation-for="UtestaendeFordr" class="text-danger"></span>
@@ -151,15 +151,15 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Godkann" /> @Html.DisplayNameFor(model => model.Godkann)
                 </label>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Projekt" class="control-label"></label>
                 <input asp-for="Projekt" class="form-control" />
                 <span asp-validation-for="Projekt" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div></div>
         </form>
     </div>
 </div>

@@ -10,10 +10,10 @@
 <h4>MallTransaktioner</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-12">
+        <form asp-action="Create" class="edit-form-grid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="row"><div class="form-group">
                 <label asp-for="Kortkod" class="control-label"></label>
                 <select asp-for="Kortkod" class ="form-control" asp-items="ViewBag.Kortkod"></select>
             </div>
@@ -31,8 +31,8 @@
                 <label asp-for="KreditProc" class="control-label"></label>
                 <input asp-for="KreditProc" class="form-control" />
                 <span asp-validation-for="KreditProc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="row"><div class="form-group">
                 <label asp-for="Konto" class="control-label"></label>
                 <input asp-for="Konto" class="form-control" />
                 <span asp-validation-for="Konto" class="text-danger"></span>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div></div>
         </form>
     </div>
 </div>
